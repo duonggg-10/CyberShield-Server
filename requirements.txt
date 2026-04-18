@@ -13,4 +13,6 @@ urllib3>=2.0.0.post1
 flask_sqlalchemy
 requests
 eventlet
-socketio
+python-socketio
+flask-socketio
+python-engineio
