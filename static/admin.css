@@ -1,0 +1,204 @@
+/* static/admin.css */
+:root {
+    --primary-color: #007bff;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+    --border-color: #dee2e6;
+
+    /* Pico.css overrides for better integration */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --h1-font-size: 1.8rem;
+    --h2-font-size: 1.5rem;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-gray);
+    color: #212529;
+    margin: 0;
+}
+
+header {
+    background-color: var(--dark-gray);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: var(--h1-font-size);
+}
+
+header a {
+    color: #ffc107;
+    text-decoration: none;
+    font-weight: 500;
+}
+header a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius); /* Use Pico.css variable */
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: var(--h2-font-size);
+}
+
+/* Pico.css buttons are styled by default, but let's ensure custom hover */
+button {
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--primary-color); /* Pico uses --primary, not sure how to override */
+}
+
+
+/* New styles for File Editor */
+.file-editor-layout {
+    display: flex;
+    gap: 1.5rem;
+}
+
+#file-browser {
+    flex: 1;
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+#file-content-editor {
+    flex: 3;
+}
+
+#file-browser ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#file-browser li {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+}
+
+#file-browser li:hover {
+    background-color: #f0f0f0;
+}
+
+#file-browser li .icon {
+    margin-right: 8px;
+}
+
+/* New styles for System Metrics */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.metric-item {
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.metric-item h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.metric-item .value {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.progress-bar {
+    height: 10px;
+    width: 100%;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%; /* Will be set by JS */
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Toast Notification Styles */
+#toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.toast {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    color: var(--color);
+    background-color: var(--background-color);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s ease-in-out;
+    min-width: 250px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.hide {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.toast[data-type="success"] {
+    --color: #155724;
+    --background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.toast[data-type="error"] {
+    --color: #721c24;
+    --background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}

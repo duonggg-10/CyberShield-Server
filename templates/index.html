@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude 4.5 Opus - Mystic Tarot</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="https://emojicdn.elk.sh/🔮">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🔮 MYSTIC TAROT</h1>
+            <p>Trải nghiệm xem bói AI đỉnh cao cùng Claude 4.5 Opus</p>
+        </header>
+
+        <section class="input-panel">
+            <textarea id="user-question" rows="3" placeholder="Hãy nhắm mắt, tập trung và nhập điều bạn đang trăn trở..."></textarea>
+            
+            <div class="controls">
+                <div class="select-group">
+                    <select id="deck-type">
+                        <option value="major">Bộ 22 Ẩn Chính</option>
+                        <option value="full">Bộ 78 Lá Đầy Đủ</option>
+                    </select>
+                    <select id="ai-speed">
+                        <option value="deep">🌙 Sâu sắc (Claude 4.5)</option>
+                        <option value="balanced">⚖️ Cân bằng (GPT-4o)</option>
+                        <option value="fast">⚡ Thần tốc (GPT-4o-mini)</option>
+                    </select>
+                </div>
+                <div class="btn-group">
+                    <button id="btn-draw">🌙 RÚT 3 LÁ BÀI</button>
+                    <button id="btn-reset">🔄 LÀM MỚI</button>
+                </div>
+            </div>
+            
+            <div id="loading-indicator" class="hidden">
+                <p id="loading-text">💫 Đang kết nối với các vì sao... 💫</p>
+            </div>
+        </section>
+
+        <section id="spread"></section>
+
+        <section id="reading-panel" class="hidden">
+            <h2 style="color: gold; text-align: center; margin-bottom: 20px;">📜 LỜI GIẢI MÃ</h2>
+            <div id="chat-box" class="chat-box"></div>
+            
+            <div class="chat-input-area">
+                <textarea id="chat-input" rows="1" placeholder="Hỏi thêm bậc thầy..."></textarea>
+                <button id="btn-chat">GỬI</button>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button id="btn-download" class="download-btn">📥 TẢI KẾT QUẢ (.TXT)</button>
+            </div>
+        </section>
+        
+        <footer style="margin-top: 50px; opacity: 0.5; font-size: 0.8rem; text-align: center;">
+            Sử dụng trí tuệ nhân tạo Claude-Opus-4.5 & Bytez SDK
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
